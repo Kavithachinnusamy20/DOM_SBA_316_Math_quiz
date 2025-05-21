@@ -1,0 +1,98 @@
+body{
+    background: rgb(34,193,195);
+    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, #885e98 86%);
+    background-attachment: fixed;
+    margin:0;
+    font-family: 'Poppins', sans-serif; 
+}
+    #form{
+        width: 300px;
+        margin:15vh auto 0 auto;
+        background-color: whitesmoke;
+        border-radius: 5px;
+        padding:30px;
+    
+    }
+    h1{
+        text-align: center;
+        color: #4e0d66  ;
+    }
+    #form button{
+    background-color: #792099;
+    color:white;
+    border: 1px solid #792099;
+    border-radius: 5px;
+    padding:10px;
+    margin:20px 0px;
+    cursor:pointer;
+    font-size:20px;
+    width:80%;
+
+
+   
+
+
+
+}
+.input-group{
+    display:flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+.input-group input{
+    border-radius: 5px;
+    font-size:20px;
+    margin-top:5px;
+    padding:10px;
+    border:1px solid rgb(34,193,195);
+}
+.input-group input:focus{
+    outline:0;
+}
+.input-group.success input{
+    border-color: #0cc477;
+}
+.input-group.error input{
+    border-color:rgb(206, 67, 67);
+}
+
+.container{
+    display: flex;
+    flex-direction:row; 
+    flex-wrap: wrap;
+    border: 1px solid none;
+    padding :50px;
+    box-shadow: 10px 10px 5px 12px lightblue;
+}
+
+
+  
+
+   
+    /* flex-direction :column; */
+
+
+
+
+#start-game{
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    padding-left: 100px;
+    padding-top: 200px;
+}
+
+#start-btn{
+    background-color: #d59aea;
+    border-radius: 5px;
+    text-align: center;
+    margin: 10px;
+}
+
+#questioncontainer{
+    border: 1px solid black;
+    width :500px;
+    height:500px;
+    align-items: center;
+
+}
