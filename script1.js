@@ -12,40 +12,24 @@ let AnswersQuestions = document.createElement('p');
 let wrongQuestions = document.createElement('p');
 
 
-function randomNumberQuiz(quizType) {
-
-    let multiplier = 0
-    if (quizType = "M") {   // Medium
-        multiplier = 10;
-    } else if (quizType = "H") {  // Hard
-        multiplier = 100;
-    }
-
-    let num1 = Math.floor(Math.random() * multiplier);
-    let num2 = Math.floor(Math.random() * multiplier);
-
-    // let correctAnswer = mediumNum1 * mediumNum1;
-
-    questionElement.innerText = `What is ${num1} Multiply by ${num2}?`;
-}
-
-// wrongQuestions.id = 'wrong';
-randomNumberQuiz('H');
-
-
-
-
-
+let selectedQuizOption = "E"; //Default to Easy
 //form
 const quizArray = [
+    'Math Quiz Easy',
     'Math Quiz Medium',
-    'Math Quiz Hard'
+    'Math Quiz Hard',
+
 ];
+
+
+
+
+// Create radio option for favorite Quiz;  Create radio button and adding the radio button to Div.
 quizArray.forEach((array, index) => {
     // console.log(array)
     const radio1 = document.createElement('input');
     radio1.type = "radio";
-    radio1.name = "Choice 1";
+    radio1.name = "quizOption";
     radio1.value = array;
     radio1.id = 'QuizOption_' + index;
 
@@ -56,8 +40,44 @@ quizArray.forEach((array, index) => {
     quizchoiceElement.appendChild(label);
     quizchoiceElement.appendChild(document.createElement('br'));
 
-})
+    radio1.addEventListener('click', function () {
+        if (this.checked) {
 
+            if (this.id == 'QuizOption_0') {
+                selectedQuizOption = 'E';
+            } else if (this.id == 'QuizOption_1') {
+                selectedQuizOption = 'M';
+            } else if (this.id == 'QuizOption_2') {
+                selectedQuizOption = 'H';
+            }
+            randomNumberQuiz();
+        }
+    });
+
+});
+
+
+// function to generate quiz question based on Quiz level (Easy/Medium/Hard)
+function randomNumberQuiz() {
+    // console.log("selectedQuizOption :" + selectedQuizOption);
+    let multiplier = 0
+    if (selectedQuizOption == "E") {  // Easy
+        multiplier = 10;
+    } else if (selectedQuizOption == "M") {   // Medium
+        multiplier = 15;
+    } else if (selectedQuizOption == "H") {  // Hard
+        multiplier = 25;
+    }
+
+    let num1 = Math.floor(Math.random() * multiplier);
+    let num2 = Math.floor(Math.random() * multiplier);
+    questionElement.innerText = `What is ${num1} Multiply by ${num2}?`;
+    return num1 * num2;
+
+}
+
+// calling the quiz function with Quiz type as Easy by default. 
+let correctAnswer = randomNumberQuiz();
 
 
 AnswersQuestions.innerText = 'Answers :';
@@ -67,14 +87,9 @@ wrongQuestions.innerText = 'Mistakes :';
 form.appendChild(AnswersQuestions);
 form.appendChild(wrongQuestions);
 // add style
-AnswersQuestions.style.color = "Green";
-wrongQuestions.style.color = "Red";
+AnswersQuestions.style.color = "blue";
+wrongQuestions.style.color = "blue";
 score1.classList.add('display');
-
-
-
-// Ensure wrongQuestions is placed after AnswersQuestions
-// AnswersQuestions.insertAdjacentElement('afterend', wrongQuestions);
 
 
 // Score tracking
@@ -88,62 +103,48 @@ score1.innerHTML = "Number of questions : " + score;
 form.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    let userAnswer = +input.value;
+    let userAnswer = input.value;
     if (correctAnswer == userAnswer) {
         score++;
         Answers++;
-
     }
     else {
         score++;
         Mistake++;
 
     }
-    score1.innerHTML = "Number of questions : " + score;
-    AnswersQuestions.innerHTML = "Answers1:" + Answers;
-    wrongQuestions.innerHTML = "Mistakes1:" + Mistake;
 
-    num1 = Math.ceil(Math.random() * (max - min + 1)) + min;
-
-
-    num2 = Math.ceil(Math.random() * (max - min + 1)) + min;
-    correctAnswer = num1 * num2;
-    questionElement.innerText = `What is ${num1} Multiply by ${num2}?`;
+    correctAnswer = randomNumberQuiz("E");
     input.value = '';
 
-    if (score == 10) {
-        window.alert("You are successfully completed your Quiz !. Try again");
+    score1.innerHTML = "Number of questions : " + score;
+    AnswersQuestions.innerHTML = "Answers :" + Answers;
+    wrongQuestions.innerHTML = "Mistakes :" + Mistake;
 
+
+    // reset after 10 Questions. 
+    if (score == 10) {
+        window.alert("Good Job! Your score is " + Answers + " out of " + score);
+        score = 0;
+        Answers = 0;
+        Mistake = 0;
+        score1.innerHTML = "Number of questions : " + score;
+        AnswersQuestions.innerHTML = "Answers :" + Answers;
+        wrongQuestions.innerHTML = "Mistakes :" + Mistake;
     }
+
 
 }
 
 );
-// Get the reset button
 
-
-// Add event listener to reset the game or form
+// Add event listener to reset the quiz
 resetButton.addEventListener('click', function (e) {
 
     e.preventDefault();
-
-    // Reset game variables
-
-
-    // Update UI elements
-    score1.innerHTML = "Number of questions :0 ";
-    AnswersQuestions.innerHTML = "Answers: 0";
-    wrongQuestions.innerHTML = "Mistakes: 0";
-
-    // Generate a new question
-    num1 = Math.floor(Math.random() * 10);
-    num2 = Math.floor(Math.random() * 10);
-    correctAnswer = num1 * num2;
-    questionElement.innerText = `What is ${num1} multiplied by ${num2}?`;
-
-    // // Clear input field
-    // input.value = '';
-
+    score1.innerHTML = "Number of questions : 0";
+    AnswersQuestions.innerHTML = "Answers :0";
+    wrongQuestions.innerHTML = "Mistakes :0";
 });
 
 
