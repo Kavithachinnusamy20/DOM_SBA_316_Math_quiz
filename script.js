@@ -34,5 +34,5 @@ function quiz(){
 for(let i of quizArray){
   i.options.sort(()=>Math.random()-.5);
 }
-let
+
 

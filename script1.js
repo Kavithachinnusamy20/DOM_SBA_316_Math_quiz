@@ -1,11 +1,11 @@
 const questionElement = document.getElementById('question');
 let num1 = Math.floor(Math.random() * 10);
 
-let num2 = Math.floor(Math.random() * 10);
-let correctAnswer = num1 * num2;
+let num2 = Math.floor(Math.random() * 10) * -1;
+let correctAnswer = num1 / num2;
 questionElement.innerText = `What is ${num1} Multiply by ${num2}?`;
 
-const form = document.getElementById('form');
+const form = document.querySelector('form');
 const input = document.getElementById('input');
 let score1 = document.getElementById('score');
 // Get the reset button
@@ -30,6 +30,7 @@ form.appendChild(wrongQuestions);
 // add style
 AnswersQuestions.style.color = "Green";
 wrongQuestions.style.color = "Red";
+score1.classList.add('display');
 
 
 // Ensure wrongQuestions is placed after AnswersQuestions
@@ -46,7 +47,7 @@ score1.innerHTML = "Number of questions : " + score;
 
 form.addEventListener('submit', function (e) {
     e.preventDefault();
-
+    window.alert("submit")
     let userAnswer = +input.value;
     if (correctAnswer == userAnswer) {
         score++;
@@ -59,17 +60,21 @@ form.addEventListener('submit', function (e) {
 
     }
     score1.innerHTML = "Number of questions : " + score;
-    AnswersQuestions.innerHTML = "Answers:" + Answers;
-    wrongQuestions.innerHTML = "Mistakes:" + Mistake;
+    AnswersQuestions.innerHTML = "Answers1:" + Answers;
+    wrongQuestions.innerHTML = "Mistakes1:" + Mistake;
 
-    num1 = Math.floor(Math.random() * 10);
+    num1 = Math.ceil(Math.random() * (max - min + 1)) + min;
 
-    num2 = Math.floor(Math.random() * 10);
+
+    num2 = Math.ceil(Math.random() * (max - min + 1)) + min;
     correctAnswer = num1 * num2;
     questionElement.innerText = `What is ${num1} Multiply by ${num2}?`;
     input.value = '';
 
+    if (score == 10) {
+        window.alert("You are successfully completed your Quiz !. Try again");
 
+    }
 
 }
 
@@ -78,26 +83,35 @@ form.addEventListener('submit', function (e) {
 
 
 // Add event listener to reset the game or form
-resetButton.addEventListener('click', function () {
+resetButton.addEventListener('click', function (e) {
+
+    e.preventDefault();
+
+    window.alert("rest :" + AnswersQuestions.innerHTML);
     // Reset game variables
-    score = 0;
-    Answers = 0;
-   Mistake = 0;
+    
 
     // Update UI elements
-    score1.innerText = `Score: ${score}`;
-    AnswersQuestions.innerText = `Answers: ${Answers}`;
-    wrongQuestions.innerText = `Mistake: ${Mistake}`;
-    
+    score1.innerHTML = "Number of questions :0 ";
+    AnswersQuestions.innerHTML = "Answers: 0";
+    wrongQuestions.innerHTML = "Mistakes: 0";
+
     // Generate a new question
     num1 = Math.floor(Math.random() * 10);
     num2 = Math.floor(Math.random() * 10);
     correctAnswer = num1 * num2;
     questionElement.innerText = `What is ${num1} multiplied by ${num2}?`;
 
-    // Clear input field
-    input.value = '';
+    // // Clear input field
+    // input.value = '';
+
+    window.alert("restee:" + AnswersQuestions.innerHTML);
 });
+
+//form
+const quizArray = [{ 'Muliplication Integers Quiz'}, { 'Muliplication Natural Numbers Quiz'}]
+
+
 
 // function updateScore() {
 //     localStorage.setItem("score",String(score));
