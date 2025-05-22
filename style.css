@@ -1,6 +1,6 @@
 body {
-    background: rgb(34, 193, 195);
-    background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, #8a6499 86%);
+    background: rgb(118, 152, 131);
+    background: linear-gradient(0deg, rgb(190, 205, 197) 0%, #32c26e 86%);
     background-attachment: fixed;
     margin: 0;
     font-family: 'Poppins', sans-serif;
@@ -10,7 +10,7 @@ body {
     width: 400px;
     
     margin: 15vh auto 0 auto;
-    background-color: #40759c;
+    background-color: #d6e4db;
     border-radius: 5px;
     padding: 30px;
 
@@ -22,18 +22,15 @@ h1 {
 }
 
 #form button {
-    background-color: lab(38.08% 68.74 -60.62);
+    background-color: lab(45.81% -39.63 19.67);
     color: white;
-    border: 1px solid #792099;
+    border: 1px solid #99df85;
     border-radius: 5px;
     padding: 10px;
     margin: 20px 0px;
     cursor: pointer;
     font-size: 20px;
     width: 80%;
-
-
-
 
 
 
@@ -52,19 +49,7 @@ input {
     padding: 10px;
     border: 1px solid rgb(93, 100, 100);
     background-color: #e6ecf1;
-    padding left 50px;
-}
-
-.input-group input:focus {
-    outline: 0;
-}
-
-.input-group.success input {
-    border-color: #0cc477;
-}
-
-.input-group.error input {
-    border-color: rgb(206, 67, 67);
+    
 }
 
 #container {
@@ -73,25 +58,19 @@ input {
     flex-wrap: wrap;
     border: 1px solid none;
     padding: 50px;
-    box-shadow: 10px 10px 5px 12px rgb(192, 205, 209);
+    box-shadow: 10px 10px 5px 12px rgb(78, 185, 70);
 }
-
-
-
 
 
 /* flex-direction :column; */
 
-
-
-
-#start-game {
+/* #start-game {
     flex-direction: row;
     align-items: center;
     position: absolute;
     padding-left: 100px;
     padding-top: 200px;
-}
+} */
 
 #start-btn {
     background-color: #d59aea;
@@ -100,9 +79,11 @@ input {
     margin: 10px;
 }
 
+
+
 #questioncontainer {
     border: 1px solid rgb(0, 0, 0);
-     background: linear-gradient(0deg, rgb(0, 0, 0) 0%, #8a6499 86%);
+     background: linear-gradient(0deg, rgb(0, 0, 0) 0%, #5ac285 86%);
     width: 500px;
     height: 500px;
     align-items: center;
@@ -110,7 +91,11 @@ input {
 
 
 .display {
-    color: purple;
+    color: hsl(154, 86%, 25%);
     font-weight: bold;
+    font-size: 20px;
 
 }
+
+
+           

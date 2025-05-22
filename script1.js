@@ -22,16 +22,15 @@ const quizArray = [
 ];
 
 
-
-
 // Create radio option for favorite Quiz;  Create radio button and adding the radio button to Div.
 quizArray.forEach((array, index) => {
     // console.log(array)
     const radio1 = document.createElement('input');
     radio1.type = "radio";
-    radio1.name = "quizOption";
+    radio1.name = "QuizOption";
     radio1.value = array;
     radio1.id = 'QuizOption_' + index;
+    console.log('QuizOption_' + index);
 
     const label = document.createElement('label');
     label.textContent = array;
@@ -39,26 +38,31 @@ quizArray.forEach((array, index) => {
     quizchoiceElement.appendChild(radio1);
     quizchoiceElement.appendChild(label);
     quizchoiceElement.appendChild(document.createElement('br'));
+    
+    
+    radio1.addEventListener('click', function (e) {
 
-    radio1.addEventListener('click', function () {
-        if (this.checked) {
+        if (e.target.checked) {
 
-            if (this.id == 'QuizOption_0') {
+            let radioSelOption = e.target.id;
+
+            if (radioSelOption == 'QuizOption_0') {
                 selectedQuizOption = 'E';
-            } else if (this.id == 'QuizOption_1') {
+            } else if (radioSelOption == 'QuizOption_1') {
                 selectedQuizOption = 'M';
-            } else if (this.id == 'QuizOption_2') {
+            } else if (radioSelOption == 'QuizOption_2') {
                 selectedQuizOption = 'H';
             }
-            randomNumberQuiz();
+            favoriteQuiz();
         }
     });
+
 
 });
 
 
 // function to generate quiz question based on Quiz level (Easy/Medium/Hard)
-function randomNumberQuiz() {
+function favoriteQuiz() {
     // console.log("selectedQuizOption :" + selectedQuizOption);
     let multiplier = 0
     if (selectedQuizOption == "E") {  // Easy
@@ -77,7 +81,7 @@ function randomNumberQuiz() {
 }
 
 // calling the quiz function with Quiz type as Easy by default. 
-let correctAnswer = randomNumberQuiz();
+let correctAnswer = favoriteQuiz();
 
 
 AnswersQuestions.innerText = 'Answers :';
@@ -87,8 +91,9 @@ wrongQuestions.innerText = 'Mistakes :';
 form.appendChild(AnswersQuestions);
 form.appendChild(wrongQuestions);
 // add style
-AnswersQuestions.style.color = "blue";
-wrongQuestions.style.color = "blue";
+AnswersQuestions.style.color = "purple";
+AnswersQuestions.style.fontWeight = "bold";
+wrongQuestions.setAttribute('style', 'color: purple; font-weight:bold; font-size: 16px;');
 score1.classList.add('display');
 
 
@@ -114,7 +119,7 @@ form.addEventListener('submit', function (e) {
 
     }
 
-    correctAnswer = randomNumberQuiz("E");
+    correctAnswer = favoriteQuiz("E");
     input.value = '';
 
     score1.innerHTML = "Number of questions : " + score;
