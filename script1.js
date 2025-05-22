@@ -1,25 +1,64 @@
-const questionElement = document.getElementById('question');
-let num1 = Math.floor(Math.random() * 10);
-
-let num2 = Math.floor(Math.random() * 10) * -1;
-let correctAnswer = num1 / num2;
-questionElement.innerText = `What is ${num1} Multiply by ${num2}?`;
-
 const form = document.querySelector('form');
 const input = document.getElementById('input');
 let score1 = document.getElementById('score');
-// Get the reset button
 const resetButton = document.getElementById('resetButton');
-
-
+const quizchoiceElement = document.getElementById('quizchoice');
+const questionElement = document.getElementById('question');
 
 // Use valid HTML tags
 
 let AnswersQuestions = document.createElement('p');
 // AnswersQuestions.id = 'Answer';
-
 let wrongQuestions = document.createElement('p');
+
+
+function randomNumberQuiz(quizType) {
+
+    let multiplier = 0
+    if (quizType = "M") {   // Medium
+        multiplier = 10;
+    } else if (quizType = "H") {  // Hard
+        multiplier = 100;
+    }
+
+    let num1 = Math.floor(Math.random() * multiplier);
+    let num2 = Math.floor(Math.random() * multiplier);
+
+    // let correctAnswer = mediumNum1 * mediumNum1;
+
+    questionElement.innerText = `What is ${num1} Multiply by ${num2}?`;
+}
+
 // wrongQuestions.id = 'wrong';
+randomNumberQuiz('H');
+
+
+
+
+
+//form
+const quizArray = [
+    'Math Quiz Medium',
+    'Math Quiz Hard'
+];
+quizArray.forEach((array, index) => {
+    // console.log(array)
+    const radio1 = document.createElement('input');
+    radio1.type = "radio";
+    radio1.name = "Choice 1";
+    radio1.value = array;
+    radio1.id = 'QuizOption_' + index;
+
+    const label = document.createElement('label');
+    label.textContent = array;
+
+    quizchoiceElement.appendChild(radio1);
+    quizchoiceElement.appendChild(label);
+    quizchoiceElement.appendChild(document.createElement('br'));
+
+})
+
+
 
 AnswersQuestions.innerText = 'Answers :';
 wrongQuestions.innerText = 'Mistakes :';
@@ -33,9 +72,10 @@ wrongQuestions.style.color = "Red";
 score1.classList.add('display');
 
 
+
 // Ensure wrongQuestions is placed after AnswersQuestions
-AnswersQuestions.insertAdjacentElement('afterend', wrongQuestions);
-// console.log(score1.innerHTML);
+// AnswersQuestions.insertAdjacentElement('afterend', wrongQuestions);
+
 
 // Score tracking
 
@@ -47,7 +87,7 @@ score1.innerHTML = "Number of questions : " + score;
 
 form.addEventListener('submit', function (e) {
     e.preventDefault();
-    window.alert("submit")
+
     let userAnswer = +input.value;
     if (correctAnswer == userAnswer) {
         score++;
@@ -87,9 +127,8 @@ resetButton.addEventListener('click', function (e) {
 
     e.preventDefault();
 
-    window.alert("rest :" + AnswersQuestions.innerHTML);
     // Reset game variables
-    
+
 
     // Update UI elements
     score1.innerHTML = "Number of questions :0 ";
@@ -105,44 +144,8 @@ resetButton.addEventListener('click', function (e) {
     // // Clear input field
     // input.value = '';
 
-    window.alert("restee:" + AnswersQuestions.innerHTML);
 });
 
-//form
-const quizArray = [{ 'Muliplication Integers Quiz'}, { 'Muliplication Natural Numbers Quiz'}]
 
 
 
-// function updateScore() {
-//     localStorage.setItem("score",String(score));
-// }
-// //division quiz
-// const questionElement1 =document.getElementById('question1');
-// let num3 =Math.floor(Math.random()*100);
-
-// let num4=Math.floor(Math.random()*100);
-// let correctquotient =num3-num4;
-// questionElement1.innerText = `What is ${num3} subtract by ${num4}?`;
-
-// let score2 = Number(localStorage.getItem("score1"));
-// if(!score1) {
-//     score1 = 0;
-// }
-// score.textcontent ='score :${score1}';
-// form.addEventListener('submit',function(){
-//     let userAnswer =+input.value;
-//     if(correctAnswer==userAnswer){
-//         score1++;
-//         updateScore();
-//     }
-//         else {
-//          score1--;
-//           updateScore();
-
-//         }
-//     }
-// );
-
-// function updateScore() {
-//     localStorage.setItem("score1",String(score));
-// }

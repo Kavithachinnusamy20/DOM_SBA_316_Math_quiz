@@ -22,7 +22,7 @@ h1 {
 }
 
 #form button {
-    background-color: #792099;
+    background-color: lab(38.08% 68.74 -60.62);
     color: white;
     border: 1px solid #792099;
     border-radius: 5px;
@@ -45,12 +45,14 @@ h1 {
     margin-bottom: 15px;
 }
 
-.input-group input {
-    border-radius: 5px;
+input {
+    border-radius: 10px;
     font-size: 20px;
     margin-top: 5px;
     padding: 10px;
-    border: 1px solid rgb(34, 193, 195);
+    border: 1px solid rgb(93, 100, 100);
+    background-color: #e6ecf1;
+    padding left 50px;
 }
 
 .input-group input:focus {
@@ -71,7 +73,7 @@ h1 {
     flex-wrap: wrap;
     border: 1px solid none;
     padding: 50px;
-    box-shadow: 10px 10px 5px 12px rgb(5, 137, 181);
+    box-shadow: 10px 10px 5px 12px rgb(192, 205, 209);
 }
 
 
@@ -100,7 +102,7 @@ h1 {
 
 #questioncontainer {
     border: 1px solid rgb(0, 0, 0);
-     background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, #8a6499 86%);
+     background: linear-gradient(0deg, rgb(0, 0, 0) 0%, #8a6499 86%);
     width: 500px;
     height: 500px;
     align-items: center;
