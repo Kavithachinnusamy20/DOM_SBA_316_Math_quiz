@@ -12,12 +12,6 @@ const questionElement = document.getElementById('question');
 let AnswersQuestions = document.createElement('p');
 // AnswersQuestions.id = 'Answer';
 let wrongQuestions = document.createElement('p');
-const parent = document.querySelector('.main'); // Select the parent container
-const firstChild = parent.firstElementChild; // Get the first child element
-const nextSibling = firstChild.nextElementSibling; // Get the next sibling of the first child
-
-console.log(nextSibling); // Logs the next sibling element
-
 
 console.log(form1.parentNode);
 
@@ -105,9 +99,9 @@ wrongQuestions.setAttribute('style', 'color: purple; font-weight:bold; font-size
 score1.classList.add('display');
 
 
-// Score tracking for  NUmber of Questions,Answers,mistakes
+// Score tracking NUmber of
 
-let score = 0; 
+let score = 0;
 let Answers = 0;
 let Mistake = 0;
 
