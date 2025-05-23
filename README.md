@@ -3,8 +3,9 @@
 # DOM_SBA_316_Math_quiz
 # DOM_SBA_316_Math_quiz
 # DOM_SBA_316_Math_quiz
-1.First, create a main <div> containing two nested containers, each with its own form. The first form validates the username and password upon clicking the submit button.
-second form contain contents Math quiz .
+1.First, create a main <div> containing two nested containers, each with its own form. The first form validates the username and password upon clicking the submit button
+// Iterate over a collection of all <h1>elements  for using eforEach loop then using if condition check id =header add innerHTML
+ second form contain contents Math quiz .
  selction id and Element
 - The   HTML elements using document.querySelector() and document.getElementById(), ensuring they can be manipulated dynamically.
  2.Quiz Options Creation
@@ -31,5 +32,6 @@ second form contain contents Math quiz .
 5. Reset Button
  Clicking the reset button clears all scores and restarts the quiz# DOM_SBA_316_Math_quiz
 
+# DOM_SBA_316_Math_quiz
 # DOM_SBA_316_Math_quiz
 # DOM_SBA_316_Math_quiz
