@@ -10,36 +10,38 @@
 
 </head>
 
-<body><div>
-<h1>Welcome to the Math Quiz </h1>
+<body><div class="main">
+    <div class="container_1">
+  <h1>Welcome to the Math Quiz </h1>
+  <form id="login">
+    <label for="usrname">Username</label>
+    <input type="text" id="usrname" name="usrname" required><br>
 
+    <label for="psw">Password</label>
+  <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one 
+  number and one uppercase and lowercase letter, and at least 8 or more characters" required><br>
+
+    <button id="button" class ="btn" type="submit">Submit</button>
+  </form>
 </div>
-    
-    <form id="form">
-        <h1>Multiplication Quiz </h1></b>
-        <div class="container">
-            
+<div class="container_2">
+    <form id="form1">
+         <h1>Multiplication Quiz </h1></b>
+              
             <h2>Please select your favorite quiz:</h2>
-            <p id="quizchoice">  </p>
-
-
-            <div class="Multiply">
-                
-
-                <p id="score"> Number of questions : 0</p>
+             <p id="quizchoice">  </p>
+             
+                  <p id="score"> Number of questions : 0</p>
                 <!-- <p id="Answers"> Answers : 0</p>
                 <p id="wrongs"> wrongs: 0</p> -->
                 <h1 id="question">What is X muliply of X?</h1>
-                <input type="number" id="input" placeholder="Enter your Answer" required>
-                <button id="button" type="submit">Submit</button>
+               
+                <input type="number" id="input" placeholder="Enter your Answer" required><br>
+                <button id="button" type="submit">Submit</button><br>
                 <button id="resetButton">Reset</button>
-
-            </div>
-
-
-
-        </div>
-    </form>
+                  
+    </form></div>
+    </div>
 </body>
 
 </html>

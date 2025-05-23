@@ -1,4 +1,5 @@
-const form = document.querySelector('form');
+const form1 = document.getElementById('form1');
+const loginForm=document.getElementById('login')
 const input = document.getElementById('input');
 let score1 = document.getElementById('score');
 const resetButton = document.getElementById('resetButton');
@@ -11,6 +12,7 @@ let AnswersQuestions = document.createElement('p');
 // AnswersQuestions.id = 'Answer';
 let wrongQuestions = document.createElement('p');
 
+console.log(form1.parentNode);
 
 let selectedQuizOption = "E"; //Default to Easy
 //form
@@ -38,8 +40,8 @@ quizArray.forEach((array, index) => {
     quizchoiceElement.appendChild(radio1);
     quizchoiceElement.appendChild(label);
     quizchoiceElement.appendChild(document.createElement('br'));
-    
-    
+
+
     radio1.addEventListener('click', function (e) {
 
         if (e.target.checked) {
@@ -88,13 +90,14 @@ AnswersQuestions.innerText = 'Answers :';
 wrongQuestions.innerText = 'Mistakes :';
 
 // Append elements correctly
-form.appendChild(AnswersQuestions);
-form.appendChild(wrongQuestions);
+form1.appendChild(AnswersQuestions);
+form1.appendChild(wrongQuestions);
 // add style
 AnswersQuestions.style.color = "purple";
 AnswersQuestions.style.fontWeight = "bold";
 wrongQuestions.setAttribute('style', 'color: purple; font-weight:bold; font-size: 16px;');
 score1.classList.add('display');
+
 
 
 // Score tracking
@@ -105,7 +108,7 @@ let Mistake = 0;
 
 score1.innerHTML = "Number of questions : " + score;
 
-form.addEventListener('submit', function (e) {
+form1.addEventListener('submit', function (e) {
     e.preventDefault();
 
     let userAnswer = input.value;

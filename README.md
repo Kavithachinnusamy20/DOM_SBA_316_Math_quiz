@@ -24,3 +24,4 @@
 -  After 10 questions, an alert displays the final score and resets the quiz
 5. Reset Button
  Clicking the reset button clears all scores and restarts the quiz# DOM_SBA_316_Math_quiz
+# DOM_SBA_316_Math_quiz
