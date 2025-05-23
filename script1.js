@@ -1,16 +1,23 @@
+const body=document.querySelectorAll('body');
 const form1 = document.getElementById('form1');
-const loginForm=document.getElementById('login')
+
+const loginForm = document.getElementById('login')
 const input = document.getElementById('input');
 let score1 = document.getElementById('score');
 const resetButton = document.getElementById('resetButton');
 const quizchoiceElement = document.getElementById('quizchoice');
 const questionElement = document.getElementById('question');
 
-// Use valid HTML tags
 
 let AnswersQuestions = document.createElement('p');
 // AnswersQuestions.id = 'Answer';
 let wrongQuestions = document.createElement('p');
+const parent = document.querySelector('.main'); // Select the parent container
+const firstChild = parent.firstElementChild; // Get the first child element
+const nextSibling = firstChild.nextElementSibling; // Get the next sibling of the first child
+
+console.log(nextSibling); // Logs the next sibling element
+
 
 console.log(form1.parentNode);
 
@@ -20,9 +27,7 @@ const quizArray = [
     'Math Quiz Easy',
     'Math Quiz Medium',
     'Math Quiz Hard',
-
 ];
-
 
 // Create radio option for favorite Quiz;  Create radio button and adding the radio button to Div.
 quizArray.forEach((array, index) => {
@@ -41,6 +46,7 @@ quizArray.forEach((array, index) => {
     quizchoiceElement.appendChild(label);
     quizchoiceElement.appendChild(document.createElement('br'));
 
+//  Adding eventlistener for three radio buttons for based on QuizIOPtion[easy,medium,hard] and call function favoriteQuiz
 
     radio1.addEventListener('click', function (e) {
 
@@ -63,7 +69,7 @@ quizArray.forEach((array, index) => {
 });
 
 
-// function to generate quiz question based on Quiz level (Easy/Medium/Hard)
+// function to generate quiz question based on Quiz level (Easy: multiply by 10/Medium :multiply by 15/Hard:multiply by 20)
 function favoriteQuiz() {
     // console.log("selectedQuizOption :" + selectedQuizOption);
     let multiplier = 0
@@ -74,7 +80,7 @@ function favoriteQuiz() {
     } else if (selectedQuizOption == "H") {  // Hard
         multiplier = 25;
     }
-
+ 
     let num1 = Math.floor(Math.random() * multiplier);
     let num2 = Math.floor(Math.random() * multiplier);
     questionElement.innerText = `What is ${num1} Multiply by ${num2}?`;
@@ -92,17 +98,16 @@ wrongQuestions.innerText = 'Mistakes :';
 // Append elements correctly
 form1.appendChild(AnswersQuestions);
 form1.appendChild(wrongQuestions);
-// add style
+// adding  style and classlist for Answers and mistake keys
 AnswersQuestions.style.color = "purple";
 AnswersQuestions.style.fontWeight = "bold";
 wrongQuestions.setAttribute('style', 'color: purple; font-weight:bold; font-size: 16px;');
 score1.classList.add('display');
 
 
+// Score tracking for  NUmber of Questions,Answers,mistakes
 
-// Score tracking
-
-let score = 0;
+let score = 0; 
 let Answers = 0;
 let Mistake = 0;
 
@@ -155,6 +160,18 @@ resetButton.addEventListener('click', function (e) {
     wrongQuestions.innerHTML = "Mistakes :0";
 });
 
+//container1
+// To activate this form using the submit button
+document.getElementById("login").addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevents default form submission
 
+    let username = document.getElementById("usrname").value;
+    let password = document.getElementById("psw").value;
 
-
+    if (username && password) {
+        alert("Form submitted successfully!");
+        // Here you can send the data to a backend using fetch()
+    } else {
+        alert("Please fill in this fields!");
+    }
+});
