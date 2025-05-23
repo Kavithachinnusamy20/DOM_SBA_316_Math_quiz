@@ -1,4 +1,4 @@
-const body=document.querySelectorAll('body');
+const body = document.querySelectorAll('body');
 const form1 = document.getElementById('form1');
 
 const loginForm = document.getElementById('login')
@@ -8,15 +8,26 @@ const resetButton = document.getElementById('resetButton');
 const quizchoiceElement = document.getElementById('quizchoice');
 const questionElement = document.getElementById('question');
 
+// Iterate over a collection of elements to accomplish some task.
+const h1Tag = document.querySelectorAll("h1");
+h1Tag.forEach((headerTagItem) => {
+    if (headerTagItem.id == "header") {
+        headerTagItem.innerHTML = "Multiplication Quiz";
+    }
+});
 
+//Create <p> tag like Answer & mistakes 
 let AnswersQuestions = document.createElement('p');
 // AnswersQuestions.id = 'Answer';
 let wrongQuestions = document.createElement('p');
+// Append elements in Form1
+form1.appendChild(AnswersQuestions);
+form1.appendChild(wrongQuestions);
 
 console.log(form1.parentNode);
+//Default to Easy 
+let selectedQuizOption = "E"; 
 
-let selectedQuizOption = "E"; //Default to Easy
-//form
 const quizArray = [
     'Math Quiz Easy',
     'Math Quiz Medium',
@@ -40,7 +51,7 @@ quizArray.forEach((array, index) => {
     quizchoiceElement.appendChild(label);
     quizchoiceElement.appendChild(document.createElement('br'));
 
-//  Adding eventlistener for three radio buttons for based on QuizIOPtion[easy,medium,hard] and call function favoriteQuiz
+    //  Adding eventlistener for three radio buttons for based on QuizIOPtion[easy,medium,hard] and call function favoriteQuiz
 
     radio1.addEventListener('click', function (e) {
 
@@ -74,7 +85,7 @@ function favoriteQuiz() {
     } else if (selectedQuizOption == "H") {  // Hard
         multiplier = 25;
     }
- 
+
     let num1 = Math.floor(Math.random() * multiplier);
     let num2 = Math.floor(Math.random() * multiplier);
     questionElement.innerText = `What is ${num1} Multiply by ${num2}?`;
@@ -89,9 +100,7 @@ let correctAnswer = favoriteQuiz();
 AnswersQuestions.innerText = 'Answers :';
 wrongQuestions.innerText = 'Mistakes :';
 
-// Append elements correctly
-form1.appendChild(AnswersQuestions);
-form1.appendChild(wrongQuestions);
+
 // adding  style and classlist for Answers and mistake keys
 AnswersQuestions.style.color = "purple";
 AnswersQuestions.style.fontWeight = "bold";
@@ -153,8 +162,11 @@ resetButton.addEventListener('click', function (e) {
     AnswersQuestions.innerHTML = "Answers :0";
     wrongQuestions.innerHTML = "Mistakes :0";
 });
+const node = document.getElementById("button");
+const clone = node.cloneNode(true);
+clone.classList.add('btn')
+document.getElementById("login").appendChild(clone);
 
-//container1
 // To activate this form using the submit button
 document.getElementById("login").addEventListener("submit", function (event) {
     event.preventDefault(); // Prevents default form submission

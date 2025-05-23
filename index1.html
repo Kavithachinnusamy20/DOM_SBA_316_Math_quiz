@@ -2,46 +2,48 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="script1.js" defer></script>
-    <title>Multiplication quiz</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="script1.js" defer></script>
+  <title>Multiplication quiz</title>
+  <link rel="stylesheet" href="style.css">
 
 </head>
 
-<body><div class="main">
+<body>
+  <div class="main">
     <div class="container_1">
-  <h1>Welcome to the Math Quiz </h1>
-  <form id="login">
-    <label for="usrname">Username</label>
-    <input type="text" id="usrname" name="usrname" required><br><br>
+      <h1 id ="welcome">Welcome to the Math Quiz </h1>
+      <form id="login">
+        <label for="usrname">Username</label>
+        <input type="text" id="usrname" name="usrname" required><br><br>
 
-    <label for="psw">Password</label>
-  <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one 
+        <label for="psw">Password</label>
+        <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one 
   number and one uppercase and lowercase letter, and at least 8 or more characters" required><br>
 
-    <button id="button" class ="btn" type="submit">Submit</button>
-  </form>
-</div>
-<div class="container_2">
-    <form id="form1">
-         <h1>Multiplication Quiz </h1></b>
-              
-            <h2>Please select your favorite quiz:</h2>
-             <p id="quizchoice">  </p>
-             
-                  <p id="score"> Number of questions : 0</p>
-                <!-- <p id="Answers"> Answers : 0</p>
-                <p id="wrongs"> wrongs: 0</p> -->
-                <h1 id="question">What is X muliply of X?</h2>
-               
-                <input type="number" id="input" placeholder="Enter your Answer" required><br>
-                <button id="button" type="submit">Submit</button><br>
-                <button id="resetButton">Reset</button>
-                  
-    </form></div>
+        <!-- <button id="button" class="btn" type="submit">Submit</button> -->
+      </form>
     </div>
+    <div class="container_2">
+      <form id="form1">
+        <h1 id="header"> </h1></b>
+
+        <h2>Please select your favorite quiz:</h2>
+        <p id="quizchoice"> </p>
+
+        <p id="score"> Number of questions : 0</p>
+        <!-- <p id="Answers"> Answers : 0</p>
+                <p id="wrongs"> wrongs: 0</p> -->
+        <h1 id="question">What is X muliply of X?</h2>
+
+          <input type="number" id="input" placeholder="Enter your Answer" required><br>
+          <button id="button" type="submit">Submit</button><br>
+          <button id="resetButton">Reset</button>
+
+      </form>
+    </div>
+  </div>
 </body>
 
 </html>
